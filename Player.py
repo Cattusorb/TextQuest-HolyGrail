@@ -56,6 +56,11 @@ class Player:
         '''
         return self.wits
 
+# When setting strength, health, and wits, they cannot be 
+# less than 0 or greater than 10. If the value given is 
+# less than 0 then it is set to 0. If the value given is
+# greater than 10 then the value is set to 10. 
+
     def set_strength(self, value): 
         '''
             Sets strength of character to given value
