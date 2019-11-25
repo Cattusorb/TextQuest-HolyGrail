@@ -3,9 +3,12 @@
 # End Date: 
 
 # This file is the main program
-# for the Holy Grail Search game
+# for the TextQuest-HolyGrail game
 
 from Player import Player
+from Quest import Quest
+from Quests import * 
+import time
 
 def select_player():
     '''
@@ -69,9 +72,72 @@ def setup_character():
     print("You have chosen:")
     player.display_player()
     return player
-        
+  
+def swallow_chat():
+    '''
+        Answer question for swallow quest
+    '''
+    print(f"{character.name}, you are in England 932 AD. There is smoke surrounding you.")
+    print(f"A castle comes into view as your servant clicks coconuts together pretending")
+    print(f"he is your trusty-steed. A french man greets you vigorously at the castle as")
+    print(f"you approach.")
+    time.sleep(20)
+    print(f"\tSoldier #1: 'Halt! Who goes there?'")
+    time.sleep(2)
+    print(f"\t{character.name}: 'It is I, {character.name}!'")
+    time.sleep(2)
+    print(f"\tSoldier #1: 'Pull the other one!'")
+    time.sleep(2)
+    print(f"\t{character.name}: You introduce your servant then say, 'I have come to join my fellow knights of Camelot.'")
+    time.sleep(4)
+    print(f"\tSoldier #1: 'What? Ridden on a horse? --those are just coconuts!'")
+    time.sleep(2)
+    print(f"\t{character.name}: 'What?'")
+    time.sleep(2)
+    print(f"\tSoldier #1: 'You've got two empty halves of coconut and you're bangin' 'em together.'")
+    time.sleep(3)
+    print(f"\t{character.name}: 'So? We have ridden since the snows of winter covered this land...'")
+    time.sleep(3)
+    print(f"\tSoldier #1: 'Where'd you get the coconuts?'")
+    time.sleep(2)
+    print(f"\t{character.name}: 'We found them.'")
+    time.sleep(2)
+    print(f"\tSoldier #1: 'Found them? in Mercia? The coconut's tropical! Are you suggecting coconuts migrate?'")
+    time.sleep(3)
+    print(f"\t{character.name}: 'Not at all. They could be carried.'")
+    time.sleep(2)
+    print(f"\tSoldier #1: 'What? A swallow carrying a coconut? It's a simple question of weight ratios!'")
+    time.sleep(3)
+    print(f"\t{character.name}: 'Well, it doesn't matter. Will you tell your master that {character.name} is here from the Court of Camelot?'")
+    time.sleep(5)
+    print(f"\tSolier #1: 'Listen. In order to maintain the air-speed velocity a swallow needs...'")
+    time.sleep(3)
+    print(f"\t{character.name}: 'Please!'")
+    time.sleep(2)
+    print(f"\tSoldier #1: 'Am I right?'")
+    time.sleep(2)
+    print(f"\t{character.name}: 'I'm not interested!'")
+    time.sleep(2)
+    print(f"\tSoldier #2: 'It could be carried by an African Swallow!'")
+    time.sleep(5)
+    print(f"\nYou become frustrated with the chatter about swallow nonsense...")
+    while(True):
+        try: 
+            answer = int(input(f"Do you: \n\t1) walk away \n\t2) continue listening \n\t3) research swallows\nAnswer:"))
+            if answer in range(1, 4): 
+                return answer
+            else: 
+                print("Invalid Input")
+        except:
+            print("Invalid Input")
    
-# RUN GAME HERE OR CREATE A FUNCTION TO DO SO
+# RUN GAME
 character = setup_character()
 if character.name == "End":
     exit()
+ 
+ #INTRO DIALOG
+swallow_answer = swallow_chat()
+ 
+quest = BlackKnight(character)
+print(f"you rolled a {quest.roll20()} limbs {quest.limbs} player health {character.health}")

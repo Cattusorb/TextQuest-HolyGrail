@@ -1,23 +1,16 @@
 # Roslyn Parker
-# Start Date: 13 Nov. 2019
+# Start Date: 25 Nov. 2019
 # End Date:
 
-# The file contains the quests 
-# (as classes) for the main
-# Holy Grail Search game
+# This file contains the classes
+# for each quest in the 
+# game TextQuest-HolyGrail
+
+from Quest import Quest
 
 class BlackKnight(Quest):
-
-class FlyingAnimals(Quest): 
-
-class GiantRabbit(Quest):
-
-class EnchanterTim(Quest):
-
-class CaveRabbit(Quest):
-
-class TheCave(Quest):
-
-class TheBridgeOfDeath(Quest):
-
-class TheCastleOfAargh(Quest):
+    def __init__(self, player):
+        Quest.__init__(self, player)
+        self.limbs = 4
+    
+    

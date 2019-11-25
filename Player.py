@@ -2,6 +2,10 @@
 # Start Date: 13 Nov. 2019
 # End Date:
 
+# This file contains the
+# class to create each character 
+# in the game TextQuest-HolyGrail
+
 class Player:
 
     def __init__(self, name):
