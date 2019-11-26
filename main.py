@@ -108,7 +108,8 @@ def swallow_chat():
     time.sleep(2)
     print(f"\tSoldier #1: 'What? A swallow carrying a coconut? It's a simple question of weight ratios!'")
     time.sleep(3)
-    print(f"\t{character.name}: 'Well, it doesn't matter. Will you tell your master that {character.name} is here from the Court of Camelot?'")
+    print(f"\t{character.name}: 'Well, it doesn't matter. Will you tell your master that {character.name}")
+    print(f"\tis here from the Court of Camelot?'")
     time.sleep(5)
     print(f"\tSolier #1: 'Listen. In order to maintain the air-speed velocity a swallow needs...'")
     time.sleep(3)
@@ -123,7 +124,7 @@ def swallow_chat():
     print(f"\nYou become frustrated with the chatter about swallow nonsense...")
     while(True):
         try: 
-            answer = int(input(f"Do you: \n\t1) walk away \n\t2) continue listening \n\t3) research swallows\nAnswer:"))
+            answer = int(input(f"Do you: \n\t1) Walk away \n\t2) Continue listening \n\t3) Research swallows\nAnswer:"))
             if answer in range(1, 4): 
                 return answer
             else: 
@@ -132,12 +133,32 @@ def swallow_chat():
             print("Invalid Input")
    
 # RUN GAME
+#CHARACTER SELECTION
 character = setup_character()
 if character.name == "End":
     exit()
- 
- #INTRO DIALOG
+
+bn = BlackKnight(character)    
+
+''' 
+#INTRO DIALOG
 swallow_answer = swallow_chat()
+if swallow_answer == 1: 
+    print(f"You walk away and move on to the next quest.")
+elif swallow_answer == 2: 
+    print(f"You continue listening and your next quest gets delayed...")
+    time.sleep(10)
+else:
+    print(f"You decide to go research swallows and quit your quest.")
+    print("Game Over...")
+    exit()
  
-quest = BlackKnight(character)
-print(f"you rolled a {quest.roll20()} limbs {quest.limbs} player health {character.health}")
+#BRING OUT YOUR DEAD
+print("\n'Bring out your dead', you hear in the distance as you walk")
+print("by an anonymous collective... You continue walking as your")
+print("servant clicks his coconuts together. As you enter the forest")
+print("you come accross an opening, the Black Knight stands before you.")
+time.sleep(20)
+ 
+#THE BLACK KNIGHT
+bn = BlackKnight(character)'''
