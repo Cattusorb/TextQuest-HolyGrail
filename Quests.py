@@ -20,6 +20,13 @@ class BlackKnight(Quest):
         self.limbs = 4
         self.dialog(player.name)
         lc = self.limb_chop(player.name, player.strength)
+        if lc: 
+            print(f"{player.name} has won the fight! Bravo!")
+        else: 
+            print(f"{player.name} has been defeated by the Black Knight...")
+            player.health = player.health - 2
+            print(f"You loose two health.")
+            
     
     #Overriding abstract method
     def dialog(self, player_name):
@@ -68,7 +75,52 @@ class BlackKnight(Quest):
                 print("\nYou run away from the fight and fail your quest.")
                 print("The Black Knight chases you and kills you!")
                 print("Game Over...")
+                time.sleep(2)
                 exit()
             else: 
                 print("Invalid Input")
+                
+class God(Quest): 
+
+    def __init__(self, player): 
+        '''
+            Constructor function for The Lord class.
+            Calls the super class constructor.
+        '''
+        Quest.__init__(self, player)
+        self.dialog(player.name)
+        quest = self.question()
+        if quest:
+            pass
+        else: 
+            exit()
+    
+    #Overriding abstract method
+    def dialog(self, player_name):
+        print(f"{player_name} continues riding towards Camelot.")
+        print("After a while of riding you see God!")
+        print("God shows you the a beautiful image and says,")
+        print(f"\t'{player_name}, this is the Holy Grail. Look well,")
+        print(f"\t {player_name}, for it is your sacred task to seek")
+        print(f"\t this grail. That is your purpose: the quest for the Holy Grail'")
+        time.sleep(20)
         
+    def question(player_name): 
+        '''
+            The question of the quest for the Holy Grail answered!
+        '''
+        while(True):
+            try: 
+                print(f"Do you:\n\t1) Accept the Quest\n\t2) Go to Camelot to get drunk")
+                answer = int(input("Answer:"))
+            
+                while(True): 
+                    if answer in range(1, 3):
+                        if answer == 1: 
+                            print("Sir valiant knight, you have accepted the quest! Continue on!")
+                            return True
+                        elif answer == 2: 
+                            print("You have denied your quest... Game Over...")
+                            return False
+            except: 
+                print("Invalid Input.")

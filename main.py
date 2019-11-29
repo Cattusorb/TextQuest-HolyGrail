@@ -131,16 +131,32 @@ def swallow_chat():
                 print("Invalid Input")
         except:
             print("Invalid Input")
-   
+  
+def check_health(player): 
+    '''
+        Checks the health of the player, if the player's 
+        health is = 0 the game is over.
+    '''
+    try: 
+        if player.health <= 0:
+            print(f"{player.name} has no health left. Game over...")
+            time.sleep(2)
+            exit()
+        else: 
+            print(f"You have {player.health} health.")
+    except: 
+        print("Invalid player.")
+        
 # RUN GAME
 #CHARACTER SELECTION
 character = setup_character()
 if character.name == "End":
+    time.sleep(2)
     exit()
 
-bn = BlackKnight(character)    
+#Test area
 
-''' 
+'''
 #INTRO DIALOG
 swallow_answer = swallow_chat()
 if swallow_answer == 1: 
@@ -151,6 +167,7 @@ elif swallow_answer == 2:
 else:
     print(f"You decide to go research swallows and quit your quest.")
     print("Game Over...")
+    time.sleep(2)
     exit()
  
 #BRING OUT YOUR DEAD
@@ -161,4 +178,14 @@ print("you come accross an opening, the Black Knight stands before you.")
 time.sleep(20)
  
 #THE BLACK KNIGHT
-bn = BlackKnight(character)'''
+BlackKnight(character)
+check_health(character)
+
+#THE LORD
+God(character)
+
+#FLYING ANIMALS
+
+
+
+'''
