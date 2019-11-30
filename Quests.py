@@ -46,7 +46,7 @@ class BlackKnight(Quest):
             If the you strength plus the dice roll is greater
             than or equal to 10 then you chop off the limb!
         '''
-        print(f"{player_name}, you need to roll 6-sided dice to see if you")
+        print(f"\n{player_name}, you need to roll 6-sided dice to see if you")
         print("can chop off each of the Black Knight's four limbs. If you chop")
         print("off at least 3 of his 4 limbs, you win!")
         roll_count = 0
@@ -84,7 +84,7 @@ class God(Quest):
 
     def __init__(self, player): 
         '''
-            Constructor function for The Lord class.
+            Constructor function for God class.
             Calls the super class constructor.
         '''
         Quest.__init__(self, player)
@@ -97,7 +97,7 @@ class God(Quest):
     
     #Overriding abstract method
     def dialog(self, player_name):
-        print(f"{player_name} continues riding towards Camelot.")
+        print(f"\n{player_name} continues riding towards Camelot.")
         print("After a while of riding you see God!")
         print("God shows you the a beautiful image and says,")
         print(f"\t'{player_name}, this is the Holy Grail. Look well,")
@@ -124,3 +124,168 @@ class God(Quest):
                             return False
             except: 
                 print("Invalid Input.")
+                
+class FlyingAnimals(Quest):
+
+    def __init__(self, player): 
+        '''
+            Constructor function for Flying Animals class.
+            Calls the super class constructor.
+        '''
+        Quest.__init__(self, player)
+        self.dialog(player.name)
+        fa = self.fly_minigame(player)
+        if fa: 
+            print("You have successfully passed the flying animals.")
+        else: 
+            print(f"{player.name} you have died.")
+            print("Game Over...")
+            time.sleep(4)
+            exit()
+        
+    def dialog(self, player_name):
+        print("\nYou see a few guards sitting at the top of a castle and you ask")
+        print("for them to tell their master if you can have")
+        print("food and shelter for the night. You tell them he can")
+        print("join you in your quest for the Holy Grail.")
+        time.sleep(15)
+        print(f"\tFrench Guard: 'Well, I'll ask him, but I don't think he'll be")
+        print(f"\t\tvery keen. He's already got one, you see.")
+        time.sleep(8)
+        print(f"\t{player_name}: 'What?'")
+        time.sleep(2)
+        print(f"\tFrench Guard: 'He says they've already got one!'")
+        time.sleep(3)
+        print(f"\t{player_name}: 'Are you sure he's got one?'")
+        time.sleep(3)
+        print(f"\tFrench Guard: 'Oh, yes. It's very nice-a.'")
+        time.sleep(2)
+        print(f"\t{player_name}: 'Can we come up and have a look?'")
+        time.sleep(3)
+        print(f"\tFrench Guard: 'Of course not! Mind your own business!'")
+        time.sleep(3)
+        print(f"\t{player_name}: 'If you won't show me, then I shall take")
+        print(f"\t\tyour castle by force!'")
+        time.sleep(6)
+        print(f"\tFrench Guard: 'You don't frighten us! I fart in your general")
+        print(f"\t\tdirection!'")
+        time.sleep(6)
+        print("The French Guards start to get angry at you and start throwing")
+        print("random animals at you!")
+    
+    def fly_minigame(self, player):
+        '''
+            Dodge the animals to win the game. If you 
+            get hit, you lose one health. 
+        '''
+        print(f"\n{player.name}, you need to dodge the animals that come flying")
+        print("at you in order to win. You will lose 1 health for each animal")
+        print("that hits you.")
+        animals = 5
+        while(True):
+            try:
+                if player.health <= 0: 
+                    return False
+                if animals <= 0: 
+                    return True
+                    
+                d = input("Type 'd' to dodge or 'q' to quit:")
+                if d == "d":
+                    animals = animals - 1
+                    dice_roll = Quest.roll6(self)
+                    if (player.wits + dice_roll) >= 10:
+                        print("Successfully dodged an animal!")
+                    else:
+                        print("You got hit with a flying animal!")
+                        player.health = player.health - 1
+                        print(f"Health: {player.health}.")
+                elif d == "q": 
+                    return False
+                else: 
+                    print("Invalid Input.")
+            except:
+                print("Invalid Input.")
+
+class GiantRabbit(Quest):
+
+    def __init__(self, player): 
+        '''
+            Constructor function for Giant Rabbit class.
+            Calls the super class constructor.
+        '''
+        Quest.__init__(self, player)
+        self.dialog(player.name)
+        fa = self.fly_minigame(player.name)
+        
+    def dialog(self, player_name): 
+        pass
+
+class EnchanterTim(Quest):
+
+    def __init__(self, player): 
+        '''
+            Constructor function for Enchanter Tim class.
+            Calls the super class constructor.
+        '''
+        Quest.__init__(self, player)
+        self.dialog(player.name)
+        fa = self.fly_minigame(player.name)
+        
+    def dialog(self, player_name):   
+        pass
+
+class CaveRabbit(Quest):
+
+    def __init__(self, player): 
+        '''
+            Constructor function for Cave Rabbit class.
+            Calls the super class constructor.
+        '''
+        Quest.__init__(self, player)
+        self.dialog(player.name)
+        fa = self.fly_minigame(player.name)
+        
+    def dialog(self, player_name):  
+        pass
+
+class TheCave(Quest):
+
+    def __init__(self, player): 
+        '''
+            Constructor function for The Cave class.
+            Calls the super class constructor.
+        '''
+        Quest.__init__(self, player)
+        self.dialog(player.name)
+        fa = self.fly_minigame(player.name)
+        
+    def dialog(self, player_name): 
+        pass
+
+class BridgeOfDeath(Quest):
+
+    def __init__(self, player): 
+        '''
+            Constructor function for Bridge of Death class.
+            Calls the super class constructor.
+        '''
+        Quest.__init__(self, player)
+        self.dialog(player.name)
+        fa = self.fly_minigame(player.name)
+        
+    def dialog(self, player_name):    
+        pass
+    
+class CastleOfAargh(Quest):
+
+    def __init__(self, player): 
+        '''
+            Constructor function for Castle of Aargh class.
+            Calls the super class constructor.
+        '''
+        Quest.__init__(self, player)
+        self.dialog(player.name)
+        fa = self.fly_minigame(player.name)
+        
+    def dialog(self, player_name):
+        pass

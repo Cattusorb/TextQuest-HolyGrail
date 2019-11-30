@@ -38,7 +38,7 @@ class Player:
         elif name == "Sir Galahad":
             self.name = name
             self.strength = 8
-            self.health = 5
+            self.health = 6
             self.wits = 4
         elif name == "Sir Not Appearing in this Game": 
             self.name = "End"

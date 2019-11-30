@@ -154,8 +154,11 @@ if character.name == "End":
     time.sleep(2)
     exit()
 
+print("\n***")
+print("At any point in the game if you press 'q' to quit, the game will end.")
+print("***")
 #Test area
-
+FlyingAnimals(character)
 '''
 #INTRO DIALOG
 swallow_answer = swallow_chat()
@@ -183,9 +186,13 @@ check_health(character)
 
 #THE LORD
 God(character)
+check_health(character)
 
 #FLYING ANIMALS
+FlyingAnimals(character)
+check_health(character)
 
-
-
+#GIANT RABBIT
+GiantRabbit(character)
+check_health(character)
 '''
