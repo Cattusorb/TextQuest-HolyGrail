@@ -8,6 +8,7 @@
 from Player import Player
 from Quest import Quest
 from Quests import * 
+from SideQuests import * 
 import time
 
 def select_player():
@@ -156,9 +157,20 @@ if character.name == "End":
 
 print("\n***")
 print("At any point in the game if you press 'q' to quit, the game will end.")
-print("***")
+print("***\n")
 #Test area
-FlyingAnimals(character)
+["King Arthur", "Sir Galahad", "Sir Bedivere", "Sir Lancelot", "Sir Robin",
+if character.name == "King Arthur":
+    KingArthur(character)
+elif character.name == "Sir Galahad":
+    SirGalahad(character)
+elif character.name == "Sir Bedivere":
+    pass
+elif character.name == "Sir Lancelot":
+    SirLancelot(character)
+else:
+    SirRobin(character)
+
 '''
 #INTRO DIALOG
 swallow_answer = swallow_chat()
@@ -195,4 +207,6 @@ check_health(character)
 #GIANT RABBIT
 GiantRabbit(character)
 check_health(character)
+
+#CHARACTER SPECIFIC SIDE-QUESTS
 '''

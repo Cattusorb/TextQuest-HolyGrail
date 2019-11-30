@@ -137,6 +137,7 @@ class FlyingAnimals(Quest):
         fa = self.fly_minigame(player)
         if fa: 
             print("You have successfully passed the flying animals.")
+            print("You run away into the forest.")
         else: 
             print(f"{player.name} you have died.")
             print("Game Over...")
@@ -206,6 +207,7 @@ class FlyingAnimals(Quest):
             except:
                 print("Invalid Input.")
 
+
 class GiantRabbit(Quest):
 
     def __init__(self, player): 
@@ -215,10 +217,48 @@ class GiantRabbit(Quest):
         '''
         Quest.__init__(self, player)
         self.dialog(player.name)
-        fa = self.fly_minigame(player.name)
         
     def dialog(self, player_name): 
-        pass
+        print(f"\nOh brave knight, the night is closing in on you and you")
+        print(f"need a place to stay.\nDo you:\n\t1) Build a decoy rabbit")
+        print(f"\t2) Go back to the castle and fight")
+        print(f"\t3) Turn around and go to the next quest")
+        aq = self.answer_question()
+        if aq:
+            pass
+        else:
+            exit()
+    
+    def answer_question(self):
+        '''
+            Method to answer the question 
+            from the dialog method
+        '''
+        while(True):
+            try: 
+                answer = int(input("Answer: "))
+                if answer in range(1, 4):
+                    if answer == 1:
+                        print(f"\nYou have chosen to build a decoy rabbit to infiltrate")
+                        print(f"the castle but on execution of this plan, you forget to ")
+                        print(f"hop in the rabbit... Continue onward.")
+                        return True
+                    elif answer == 2:
+                        print(f"\nYou have chosen to go back to the castle and fight!")
+                        print(f"This has led you to your death via Giant Rabbit!")
+                        print("Game Over...")
+                        time.sleep(3)
+                        return False
+                    elif answer == 3:
+                        print(f"\nYou have decided to turn around and go to your next quest.")
+                        print("Good choice, carry on.")
+                        return True
+                else:
+                    print("Invalid Input.")
+            except: 
+                print("Invalid Input.")
+        
+    
 
 class EnchanterTim(Quest):
 
@@ -243,7 +283,6 @@ class CaveRabbit(Quest):
         '''
         Quest.__init__(self, player)
         self.dialog(player.name)
-        fa = self.fly_minigame(player.name)
         
     def dialog(self, player_name):  
         pass
@@ -257,7 +296,6 @@ class TheCave(Quest):
         '''
         Quest.__init__(self, player)
         self.dialog(player.name)
-        fa = self.fly_minigame(player.name)
         
     def dialog(self, player_name): 
         pass
@@ -271,7 +309,6 @@ class BridgeOfDeath(Quest):
         '''
         Quest.__init__(self, player)
         self.dialog(player.name)
-        fa = self.fly_minigame(player.name)
         
     def dialog(self, player_name):    
         pass
@@ -285,7 +322,6 @@ class CastleOfAargh(Quest):
         '''
         Quest.__init__(self, player)
         self.dialog(player.name)
-        fa = self.fly_minigame(player.name)
         
     def dialog(self, player_name):
         pass
