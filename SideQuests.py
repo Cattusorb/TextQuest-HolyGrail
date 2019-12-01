@@ -34,7 +34,7 @@ class KingArthur(Quest):
             ss = self.shrub_search()
             if ss:
                 print("The knights who say 'Ni' are pleased but they want another one!")
-                
+                self.dialog2(player)
             else:
                 print("You failed your quest... Game Over...")
                 time.sleep(3)
@@ -95,10 +95,38 @@ class KingArthur(Quest):
                         print("the knights who say 'Ni'!")
                         return True
                     elif answer == 2:
+                        print(f"You, {player.name}, refuse the shrubbery and bring back nothing")
+                        print("to the knights who say 'Ni' and they kill you!")
+                        player.health = 0
                         return False
                 else:
                     print("Invalid Input.")
             except: 
+                print("Invalid Input.")
+                
+    def dialog2(self, player):
+        '''
+            dialog2 is the dialog for the second part of this quest
+            once the knight goes back to the knights who say 'Ni'
+        '''
+        print(f"\n\tKnight: 'You must bring us another shrubbery and cut down")
+        print(f"\t\tthe tallest tree in the forest with a harring!'")
+        print(f"\t{player.name}: 'I refuse to do it!'")
+        print(f"The knights who say 'Ni' cowery in agony when you say that word.")
+        print(f"Guess the word that they don't like to continue! You have 3 guesses.")
+        tries = 3
+        for(int i = 0; i < 3; i++):
+            answer = input("Answer: ")
+            if tries <= 0:
+                return False
+            try: 
+                if answer.lower() == "it":
+                    print("You have passed the test! Continue onward.")
+                    return True
+                else:
+                    tries = tries - 1
+                    print(f"You did not guess the word. Tries left: {tries}.")
+            except:
                 print("Invalid Input.")
         
 class SirGalahad(Quest):
