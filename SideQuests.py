@@ -25,16 +25,23 @@ class KingArthur(Quest):
         print(f"\nYou forage on through the foggy forest and come accross a tall, ")
         print("dark knight about 4 feet taller than you. They greet you with:")
         print(f"\tKnight: 'We are the knights who say 'Ni'! '")
-        print("You notice more of them standing behind the tall knight.")
+        print("\nYou notice more of them standing behind the tall knight.")
         print(f"\tKnight: 'We demand a sacrifice or you must bring us a shrubbery!'")
         print(f"Do you:\n\t1) Sacrifice yourself\n\t2) Search for a Shrubbery")
         print(f"\t3) Try and fight\n\t4) Run away!")
         q1 = self.answer_question1(player)
         if q1:
-            ss = self.shrub_search()
+            ss = self.shrub_search(player)
             if ss:
                 print("The knights who say 'Ni' are pleased but they want another one!")
-                self.dialog2(player)
+                d2 = self.dialog2(player)
+                if d2: 
+                    print(f"{player.name}, you have passed this task!")
+                else: 
+                    print("Game Over...")
+                    time.sleep(3)
+                    exit()
+                
             else:
                 print("You failed your quest... Game Over...")
                 time.sleep(3)
@@ -74,7 +81,7 @@ class KingArthur(Quest):
                     print("Invalid Input.")
             except: 
                 print("Invalid Input.")
-    def shrub_search(self):
+    def shrub_search(self, player):
         '''
             Search for a shurbbery, if you find one return True
             else return False
@@ -85,24 +92,22 @@ class KingArthur(Quest):
         print("\nA man with a cart full of shrubberies rides up to you")
         print("and tells you he will give you a shrubbery for free!")
         print(f"Do you:\n\t1) Take the shubbery\n\t2) Don't take the shrubbery") 
-          while(True):
-            try: 
-                answer = int(input("Answer: "))
-                if answer in range(1, 3):
-                    if answer == 1:
-                        player.health = 0
-                        print(f"You, {player.name}, decide to take the shrubbery back to")
-                        print("the knights who say 'Ni'!")
-                        return True
-                    elif answer == 2:
-                        print(f"You, {player.name}, refuse the shrubbery and bring back nothing")
-                        print("to the knights who say 'Ni' and they kill you!")
-                        player.health = 0
-                        return False
-                else:
-                    print("Invalid Input.")
-            except: 
+        while(True):
+            #try: 
+            answer = input("Answer: ")
+            if answer == '1':
+                print(f"You, {player.name}, decide to take the shrubbery back to")
+                print("the knights who say 'Ni'!")
+                return True
+            elif answer == '2':
+                print(f"You, {player.name}, refuse the shrubbery and bring back nothing")
+                print("to the knights who say 'Ni' and they kill you!")
+                player.health = 0
+                return False
+            else:
                 print("Invalid Input.")
+            #except: 
+             #   print("Invalid Input.")
                 
     def dialog2(self, player):
         '''
@@ -112,10 +117,10 @@ class KingArthur(Quest):
         print(f"\n\tKnight: 'You must bring us another shrubbery and cut down")
         print(f"\t\tthe tallest tree in the forest with a harring!'")
         print(f"\t{player.name}: 'I refuse to do it!'")
-        print(f"The knights who say 'Ni' cowery in agony when you say that word.")
+        print(f"\nThe knights who say 'Ni' cowery in agony when you say that word.")
         print(f"Guess the word that they don't like to continue! You have 3 guesses.")
         tries = 3
-        for(int i = 0; i < 3; i++):
+        while(True):
             answer = input("Answer: ")
             if tries <= 0:
                 return False

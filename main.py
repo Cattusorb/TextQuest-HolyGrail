@@ -82,46 +82,26 @@ def swallow_chat():
     print(f"A castle comes into view as your servant clicks coconuts together pretending")
     print(f"he is your trusty-steed. A french man greets you vigorously at the castle as")
     print(f"you approach.")
-    time.sleep(20)
     print(f"\tSoldier #1: 'Halt! Who goes there?'")
-    time.sleep(2)
     print(f"\t{character.name}: 'It is I, {character.name}!'")
-    time.sleep(2)
     print(f"\tSoldier #1: 'Pull the other one!'")
-    time.sleep(2)
     print(f"\t{character.name}: You introduce your servant then say, 'I have come to join my fellow knights of Camelot.'")
-    time.sleep(4)
     print(f"\tSoldier #1: 'What? Ridden on a horse? --those are just coconuts!'")
-    time.sleep(2)
     print(f"\t{character.name}: 'What?'")
-    time.sleep(2)
     print(f"\tSoldier #1: 'You've got two empty halves of coconut and you're bangin' 'em together.'")
-    time.sleep(3)
     print(f"\t{character.name}: 'So? We have ridden since the snows of winter covered this land...'")
-    time.sleep(3)
     print(f"\tSoldier #1: 'Where'd you get the coconuts?'")
-    time.sleep(2)
     print(f"\t{character.name}: 'We found them.'")
-    time.sleep(2)
     print(f"\tSoldier #1: 'Found them? in Mercia? The coconut's tropical! Are you suggecting coconuts migrate?'")
-    time.sleep(3)
     print(f"\t{character.name}: 'Not at all. They could be carried.'")
-    time.sleep(2)
     print(f"\tSoldier #1: 'What? A swallow carrying a coconut? It's a simple question of weight ratios!'")
-    time.sleep(3)
     print(f"\t{character.name}: 'Well, it doesn't matter. Will you tell your master that {character.name}")
     print(f"\tis here from the Court of Camelot?'")
-    time.sleep(5)
     print(f"\tSolier #1: 'Listen. In order to maintain the air-speed velocity a swallow needs...'")
-    time.sleep(3)
     print(f"\t{character.name}: 'Please!'")
-    time.sleep(2)
     print(f"\tSoldier #1: 'Am I right?'")
-    time.sleep(2)
     print(f"\t{character.name}: 'I'm not interested!'")
-    time.sleep(2)
     print(f"\tSoldier #2: 'It could be carried by an African Swallow!'")
-    time.sleep(5)
     print(f"\nYou become frustrated with the chatter about swallow nonsense...")
     while(True):
         try: 
@@ -147,7 +127,25 @@ def check_health(player):
             print(f"You have {player.health} health.")
     except: 
         print("Invalid player.")
-        
+
+def check_continue():
+    '''
+        Checks to see if the user wants to continue
+        on to the next quest or quit the game
+    '''
+    print(f"\nWould you like to continue to the next quest?")
+    while(True):
+        answer = input("Type 'c' to continue or 'q' to quit: ")
+        if answer.lower() == 'c':
+            print("\nYou continue onward!")
+            return
+        elif answer.lower() == 'q':
+            print("\nExiting game...")
+            time.sleep(3)
+            exit()
+        else: 
+            print("Invalid Input.")
+    
 # RUN GAME
 #CHARACTER SELECTION
 character = setup_character()
@@ -159,19 +157,7 @@ print("\n***")
 print("At any point in the game if you press 'q' to quit, the game will end.")
 print("***\n")
 #Test area
-["King Arthur", "Sir Galahad", "Sir Bedivere", "Sir Lancelot", "Sir Robin",
-if character.name == "King Arthur":
-    KingArthur(character)
-elif character.name == "Sir Galahad":
-    SirGalahad(character)
-elif character.name == "Sir Bedivere":
-    pass
-elif character.name == "Sir Lancelot":
-    SirLancelot(character)
-else:
-    SirRobin(character)
 
-'''
 #INTRO DIALOG
 swallow_answer = swallow_chat()
 if swallow_answer == 1: 
@@ -184,29 +170,46 @@ else:
     print("Game Over...")
     time.sleep(2)
     exit()
- 
+check_continue()
+
 #BRING OUT YOUR DEAD
 print("\n'Bring out your dead', you hear in the distance as you walk")
 print("by an anonymous collective... You continue walking as your")
 print("servant clicks his coconuts together. As you enter the forest")
 print("you come accross an opening, the Black Knight stands before you.")
-time.sleep(20)
+check_continue()
  
 #THE BLACK KNIGHT
 BlackKnight(character)
 check_health(character)
+check_continue()
 
 #THE LORD
 God(character)
 check_health(character)
+check_continue()
 
 #FLYING ANIMALS
 FlyingAnimals(character)
 check_health(character)
+check_continue()
 
 #GIANT RABBIT
 GiantRabbit(character)
 check_health(character)
+check_continue()
 
 #CHARACTER SPECIFIC SIDE-QUESTS
-'''
+if character.name == "King Arthur":
+    KingArthur(character)
+elif character.name == "Sir Galahad":
+    SirGalahad(character)
+elif character.name == "Sir Bedivere":
+    pass
+elif character.name == "Sir Lancelot":
+    SirLancelot(character)
+else:
+    SirRobin(character)
+    
+check_health(character)
+check_continue()

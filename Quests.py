@@ -32,13 +32,10 @@ class BlackKnight(Quest):
     def dialog(self, player_name):
         bn = "Black Knight"
         print(f"\t{bn}: 'None shall pass.'")
-        time.sleep(2)
         print(f"\t{player_name}: 'What? I have no quarrel with you, good Sir Knight,")
         print(f"\tbut I must cross this bridge.'")
-        time.sleep(5)
         print(f"\t{bn}: 'Then you shall die. I move for no man.'\n")
-        time.sleep(2)
-        
+
     def limb_chop(self, player_name, player_strength):
         '''
             Limb chop game. If you chop of 3 out of 4 of the
@@ -103,7 +100,6 @@ class God(Quest):
         print(f"\t'{player_name}, this is the Holy Grail. Look well,")
         print(f"\t {player_name}, for it is your sacred task to seek")
         print(f"\t this grail. That is your purpose: the quest for the Holy Grail'")
-        time.sleep(20)
         
     def question(player_name): 
         '''
@@ -141,7 +137,7 @@ class FlyingAnimals(Quest):
         else: 
             print(f"{player.name} you have died.")
             print("Game Over...")
-            time.sleep(4)
+            time.sleep(3)
             exit()
         
     def dialog(self, player_name):
@@ -149,28 +145,18 @@ class FlyingAnimals(Quest):
         print("for them to tell their master if you can have")
         print("food and shelter for the night. You tell them he can")
         print("join you in your quest for the Holy Grail.")
-        time.sleep(15)
         print(f"\tFrench Guard: 'Well, I'll ask him, but I don't think he'll be")
         print(f"\t\tvery keen. He's already got one, you see.")
-        time.sleep(8)
         print(f"\t{player_name}: 'What?'")
-        time.sleep(2)
         print(f"\tFrench Guard: 'He says they've already got one!'")
-        time.sleep(3)
         print(f"\t{player_name}: 'Are you sure he's got one?'")
-        time.sleep(3)
         print(f"\tFrench Guard: 'Oh, yes. It's very nice-a.'")
-        time.sleep(2)
         print(f"\t{player_name}: 'Can we come up and have a look?'")
-        time.sleep(3)
         print(f"\tFrench Guard: 'Of course not! Mind your own business!'")
-        time.sleep(3)
         print(f"\t{player_name}: 'If you won't show me, then I shall take")
         print(f"\t\tyour castle by force!'")
-        time.sleep(6)
         print(f"\tFrench Guard: 'You don't frighten us! I fart in your general")
         print(f"\t\tdirection!'")
-        time.sleep(6)
         print("The French Guards start to get angry at you and start throwing")
         print("random animals at you!")
     
