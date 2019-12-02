@@ -92,7 +92,7 @@ def swallow_chat():
     print(f"\t{character.name}: 'So? We have ridden since the snows of winter covered this land...'")
     print(f"\tSoldier #1: 'Where'd you get the coconuts?'")
     print(f"\t{character.name}: 'We found them.'")
-    print(f"\tSoldier #1: 'Found them? in Mercia? The coconut's tropical! Are you suggecting coconuts migrate?'")
+    print(f"\tSoldier #1: 'Found them? in Mercia? The coconut's tropical! Are you suggesting coconuts migrate?'")
     print(f"\t{character.name}: 'Not at all. They could be carried.'")
     print(f"\tSoldier #1: 'What? A swallow carrying a coconut? It's a simple question of weight ratios!'")
     print(f"\t{character.name}: 'Well, it doesn't matter. Will you tell your master that {character.name}")
@@ -118,22 +118,26 @@ def check_health(player):
         Checks the health of the player, if the player's 
         health is = 0 the game is over.
     '''
+    exit = False
     try: 
         if player.health <= 0:
             print(f"{player.name} has no health left. Game over...")
             time.sleep(2)
-            exit()
+            exit = True
         else: 
-            print(f"You have {player.health} health.")
+            player.display_player()
     except: 
         print("Invalid player.")
+    
+    if exit:
+        exit()
 
 def check_continue():
     '''
         Checks to see if the user wants to continue
         on to the next quest or quit the game
     '''
-    print(f"\nWould you like to continue to the next quest?")
+    print(f"\nWould you like to continue to the next task?")
     while(True):
         answer = input("Type 'c' to continue or 'q' to quit: ")
         if answer.lower() == 'c':
@@ -145,19 +149,40 @@ def check_continue():
             exit()
         else: 
             print("Invalid Input.")
-    
+ 
+def reset(player):
+    '''
+        Resets the game and player stats
+        TODO
+    '''
+    pass
+ 
+def reset_at_checkpoint(player):
+    '''
+        Resets the game to the last completed quest
+        TODO
+    '''
+    pass
+ 
 # RUN GAME
 #CHARACTER SELECTION
 character = setup_character()
+ 
 if character.name == "End":
     time.sleep(2)
     exit()
+
+# CHARACTER COPY FOR RESETS
+init_character = character
 
 print("\n***")
 print("At any point in the game if you press 'q' to quit, the game will end.")
 print("***\n")
 #Test area
+check_health(character)
+TheCave(character)
 
+'''
 #INTRO DIALOG
 swallow_answer = swallow_chat()
 if swallow_answer == 1: 
@@ -213,3 +238,19 @@ else:
     
 check_health(character)
 check_continue()
+
+#ENCHANTER TIM
+EnchanterTim(character)
+check_health(character)
+check_continue()
+
+#THE CAVE RABBIT
+CaveRabbit(character)
+check_health(character)
+check_continue()
+
+#THE CAVE
+TheCave(character)
+check_health(character)
+check_continue()
+'''

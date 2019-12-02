@@ -231,7 +231,7 @@ class GiantRabbit(Quest):
                         return True
                     elif answer == 2:
                         print(f"\nYou have chosen to go back to the castle and fight!")
-                        print(f"This has led you to your death via Giant Rabbit!")
+                        print(f"This has led you to your death via flying animals!")
                         print("Game Over...")
                         time.sleep(3)
                         return False
@@ -255,10 +255,50 @@ class EnchanterTim(Quest):
         '''
         Quest.__init__(self, player)
         self.dialog(player.name)
-        fa = self.fly_minigame(player.name)
+        f = self.follow(player.name)
+        if f:
+            pass
+        else:
+            exit()
         
     def dialog(self, player_name):   
-        pass
+        print(f"\nAs you ride forward on your quest for the Holy Grail")
+        print("an Enchanter by the name of Tim greets you as he shoots fireballs")
+        print("on the mountians that surround you.")
+        print(f"\tTim: 'Greetings, {player_name}!'")
+        print(f"\t{player_name}: 'You know my name?'")
+        print(f"\tTim: 'I do! You seek the Holy Grail!'")
+        print(f"\t{player_name}: 'That is our quest. You know much that is hidden, O Tim.'")
+        print(f"\nAs you continue talking with Tim, he informs you that he has")
+        print("information for you regarding the Holy Grail you seek.")
+        print(f"\tTim: 'To the North there lies a cave- the cave of Caerbannog-")
+        print(f"\t\twherein, carved in mystic runes upon the very living rock, the")
+        print(f"\t\tlast words of Olfin Bedwere of Rheged... make plain the last")
+        print(f"\t\tresting place of the most Holy Grail.'")
+        print(f"\t{player_name}: 'Where could we find this cave, O Tim?'")
+        print(f"\tTim: 'Follow. Follow only if ye be men of valour, for the entrance")
+        print(f"\t\tto this cave is guarded by a creature so foul, so cruel...")
+        print(f"\t\tIf you doubt your courage or strength, come no further for death")
+        print(f"\t\tawaits you all with nasty, big, pointy teeth.")
+        print("\nTim starts to walk and show you to where the cave entrance is.")
+     
+    def follow(self, player_name):
+        '''
+            Decide whether or not you want to follow Tim.
+        '''
+        print(f"Do you:\n\t1) Follow Tim\n\t2) Run back to Camelot to get drunk")
+        while(True):
+            answer = input("Answer:")
+            if answer == '1': 
+                print(f"{player_name}, you have chosen to follow Tim to the cave.")
+                return True
+            elif answer == '2':
+                print(f"{player_name}, you have chosen to go back to Camelot to get drunk.")
+                print("Game Over...")
+                time.sleep(3)
+                return False
+            else: 
+                print("Invalid Input.")
 
 class CaveRabbit(Quest):
 
@@ -269,9 +309,71 @@ class CaveRabbit(Quest):
         '''
         Quest.__init__(self, player)
         self.dialog(player.name)
+        r = self.rabbit(player)
+        if r:
+            pass
+        else:
+            time.sleep(3)
+            exit()
         
     def dialog(self, player_name):  
-        pass
+        print(f"\n\tTim: 'Behold the cave of Caerbannog!'")
+        print("\nAs you approach the cave along side Tim, you see a rabbit")
+        print("sitting at the entrance to the cave.")
+        print(f"\tTim: 'That's no ordinary rabbit! That's the most foul, cruel,")
+        print(f"\t\tand bad-tempered rodent you ever set eyes on! That rabbit's got")
+        print(f"\t\ta vicous streak a mile wide! It's a killer!")
+        print(f"\t{player_name}: You motion for your servant to go to the rabbit, 'Go on,")
+        print(f"\t\t chop his head off!")
+        print(f"\tServant: 'Right! One rabbit stew comin' right up!'")
+        print(f"\nAs the servant goes in to attack the rabbit it viciously attacks his")
+        print("neck and he dies quickly! You are scared out of your armor and don't")
+        print(f"know what to do.\n\tTim: 'Oh, it's just a harmless bunny isn't it?'")
+        print(f"\t{player_name}: 'Oh shut up!'")
+        print("\nYou have 4 options to defeat this rabbit.")
+     
+    def rabbit(self, player):
+        '''
+            Method to choose how to defeat the rabbit
+        '''
+        print(f"\nDo you:\n\t1) Try to chop off it's head")
+        print(f"\t2) Run away\n\t3) Taunt it\n\t4) Use the Holy Hand Grenade")
+        while(True):
+            answer = input("Answer:")
+            if answer == '1':
+                print("You go to try and chop off it's head, but you end up like")
+                print(f"your servant. You, {player.name}, die.")
+                print("Game Over...")
+                player.health = 0
+                return False
+            elif answer == '2':
+                print("You have chosen to run away. In turn you fail your quest for")
+                print("the Holy Grail. God sentences you to death.")
+                print("Game Over...")
+                player.health = 0
+                return False
+            elif answer == '3':
+                print("Based on your wits and the roll of a 20 sided dice")
+                print("The sum of those much be greater than or equal to 12 to taunt and")
+                print("kill the rabbit.")
+                dice_roll = Quest.roll20(self)
+                print(f"You rolled {dice_roll} and you have {player.wits} wits.")
+                if dice_roll + player.wits >= 12:
+                    print("You have successfully taunted the rabbit, you go in to kill")
+                    print("it and make a nice stew!\n+2 health\n+2 wits")
+                    player.health = player.health + 2
+                    player.wits = player.wits + 2
+                    return True
+                else: 
+                    print("You lost the fight against the rabbit. You have died.")
+                    print("Game Over...")
+                    return False
+            elif answer == '4':
+                print("You have chosen to use the Holy Hand Grenade. You throw it at the")
+                print("rabbit and it instantly kills him upon explosion! Good job!")
+                return True
+            else:
+                print("Invalid Input.")
 
 class TheCave(Quest):
 
@@ -282,10 +384,42 @@ class TheCave(Quest):
         '''
         Quest.__init__(self, player)
         self.dialog(player.name)
+        bb = self.black_beast(player)
+        if bb:
+            pass
+        else:
+            exit()
         
     def dialog(self, player_name): 
-        pass
+        print(f"\n{player_name}, you enter the cave with courage. As you")
+        print("walk through the cave with your sword out, you come across")
+        print("some writing on the wall. It reads: 'Here may be found the")
+        print("last words of Joseph of Arimathea. He who is valiant and")
+        print("pure of spirit may find the Holy Grail in the Castle of ")
+        print("Aaaarrrrggghhh.' After reading this you ponder what it means")
+        print(f"when suddenly the Legendary Back Beast appears!")
 
+    def black_beast(self, player):
+        '''
+            What to do about the black beast
+        '''
+        print(f"\nDo you:\n\t1) Fight it\n\t2) Run!!!")
+        while(True): 
+            answer = input("Answer: ")
+            if answer == '1':
+                print("As you try to fight the beast, he opens his mouth wide")
+                print("and eats you whole! You have died.")
+                print("Game Over...")
+                time.sleep(3)
+                return False
+            elif answer == '2':
+                print("You have chosen to run as fast as you can! While you are")
+                print("running away the moster magically disappears and you")
+                print("are now safe... for now.")
+                return True
+            else:
+                print("Invalid Input.")
+    
 class BridgeOfDeath(Quest):
 
     def __init__(self, player): 
