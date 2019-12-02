@@ -438,7 +438,7 @@ class BridgeOfDeath(Quest):
             exit()
         
     def dialog(self, player_name):    
-        print(f"\{player_name}, you have arrived at the bridge of death!")
+        print(f"\n{player_name}, you have arrived at the bridge of death!")
         print("You see a man guarding the bridge.")
         print(f"\tBridge Keeper: 'Stop! Who would cross the Bridge of Death")
         print(f"\t\tmust answer me these questions three, ere the other side")
@@ -528,6 +528,82 @@ class CastleOfAargh(Quest):
         '''
         Quest.__init__(self, player)
         self.dialog(player.name)
+        hg = self.holy_grail(player)
+        if hg:
+            time.sleep(3)
+            pass
+        else:
+            time.sleep(3)
+            exit()
         
     def dialog(self, player_name):
-        pass
+        print(f"{player_name}, you have arrived at your last destination!")
+        print("The Castle of Aargh.")
+        print(f"\t{player_name}: 'Our quest is at an end! God be praised!")
+        print(f"\t\tAlmighty God, we thank Thee that Thou hast vouchsafed to us the most holy--")
+        print(f"\t\tJesus Christ!'")
+        print(f"\nA french man throws an object at you from the castle.")
+        print(f"\tFrench Guard: 'Allo, {player_name}, who has the brain of a duck. So, we French")
+        print(f"\t\tfellows outwit you a second time!'")
+        print(f"\t{player_name}: 'If you do not open this door, we shall take this")
+        print(f"\t\tcastle by force! In the name of God and the glory of our--")
+        print("\nThe french man throws a pie at you twice! Then laughs at you.")
+        print("The holy grail is in this castle and you need to defeat the french")
+        print("guard in order to get it. An army comes from beyond the lands to assist you")
+        print("in your quest for the Holy Grail!")
+     
+    def holy_grail(self, player):
+        '''
+            Final quest to achieve the holy grail
+        '''
+        fight = 0
+        while(True):
+            answer = input("Would you like to fight with 'strength' or 'wits'?: ")
+            if answer == 'wits':
+                fight = player.wits
+                break
+            elif answer == 'strength': 
+                fight = player.strength
+                break
+            else: 
+                print("Invalid Input.")
+        
+        print("\nYou must roll a 20-sided dice to decide your fate.")
+        print("The sum of the roll plus your choice of fight will")
+        print("determine the outcome. If you get greater than or equal to")
+        print("15 from the sum you will defeat the french guards and achieve your quest!")
+        while(True):
+            answer = input("Type 'roll' to roll the dice: ")
+            if answer.lower() == "roll":
+                dice_roll = Quest.roll20(self)
+                print(f"You rolled {dice_roll}. You have {fight} fight.")
+                if dice_roll + fight >= 15:
+                    print(f"\n{player.name}, you have defeated the french man and")
+                    print("go into the castle. A beautiful object sits before you.")
+                    time.sleep(2)
+                    print("The Holy Grail.")
+                    time.sleep(3)
+                    print("You have completed your quest for the Holy Grail.")
+                    time.sleep(3)
+                    print("Thanks for playing!")
+                    time.sleep(3)
+                    print("Created by: Roslyn Parker VTC Class 2021")
+                    return True
+                else: 
+                    print("\nYou have failed to defeat the french man, but the army of")
+                    print("people come to your rescue! They hep you defeat the french man")
+                    print("who will not taunt you a third time-a!")
+                    print(f"\n{player.name}, you have defeated the french man and")
+                    print("go into the castle. A beautiful object sits before you.")
+                    time.sleep(2)
+                    print("The Holy Grail.")
+                    time.sleep(3)
+                    print("You have completed your quest for the Holy Grail.")
+                    time.sleep(3)
+                    print("Thanks for playing!")
+                    time.sleep(3)
+                    print("Created by: Roslyn Parker, VTC Class 2021")
+                    return True
+                    
+                    
+                    

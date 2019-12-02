@@ -12,7 +12,6 @@ class Quest:
     def __init__(self, player):
         self.player = player
         self.isComplete = False
-        self.isSuccess = False
         
     def dialog(self):
         '''

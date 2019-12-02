@@ -113,7 +113,7 @@ def swallow_chat():
         except:
             print("Invalid Input")
   
-def check_health(player): 
+def check_health(player, checkpoint_n): 
     '''
         Checks the health of the player, if the player's 
         health is = 0 the game is over.
@@ -179,8 +179,8 @@ print("\n***")
 print("At any point in the game if you press 'q' to quit, the game will end.")
 print("***\n")
 #Test area
-check_health(character)
-BridgeOfDeath(character)
+check_health(character, 1)
+CastleOfAargh(character)
 
 '''
 #INTRO DIALOG
@@ -206,22 +206,22 @@ check_continue()
  
 #THE BLACK KNIGHT
 BlackKnight(character)
-check_health(character)
+check_health(character, 1)
 check_continue()
 
 #THE LORD
 God(character)
-check_health(character)
+check_health(character, 2)
 check_continue()
 
 #FLYING ANIMALS
 FlyingAnimals(character)
-check_health(character)
+check_health(character, 3)
 check_continue()
 
 #GIANT RABBIT
 GiantRabbit(character)
-check_health(character)
+check_health(character, 4)
 check_continue()
 
 #CHARACTER SPECIFIC SIDE-QUESTS
@@ -236,26 +236,31 @@ elif character.name == "Sir Lancelot":
 else:
     SirRobin(character)
     
-check_health(character)
+check_health(character, 5)
 check_continue()
 
 #ENCHANTER TIM
 EnchanterTim(character)
-check_health(character)
+check_health(character, 6)
 check_continue()
 
 #THE CAVE RABBIT
 CaveRabbit(character)
-check_health(character)
+check_health(character, 7)
 check_continue()
 
 #THE CAVE
 TheCave(character)
-check_health(character)
+check_health(character, 8)
 check_continue()
 
 #THE BRIDGE OF DEATH
 BridgeOfDeath(character)
-check_health(character)
+check_health(character, 9)
 check_continue()
+
+#THE CASTLE OF AARGH
+CastleOfAargh(character)
+check_health(character, 10)
+
 '''
