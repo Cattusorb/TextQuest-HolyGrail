@@ -180,7 +180,7 @@ print("At any point in the game if you press 'q' to quit, the game will end.")
 print("***\n")
 #Test area
 check_health(character)
-TheCave(character)
+BridgeOfDeath(character)
 
 '''
 #INTRO DIALOG
@@ -251,6 +251,11 @@ check_continue()
 
 #THE CAVE
 TheCave(character)
+check_health(character)
+check_continue()
+
+#THE BRIDGE OF DEATH
+BridgeOfDeath(character)
 check_health(character)
 check_continue()
 '''

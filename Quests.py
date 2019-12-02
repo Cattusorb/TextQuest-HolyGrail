@@ -429,9 +429,95 @@ class BridgeOfDeath(Quest):
         '''
         Quest.__init__(self, player)
         self.dialog(player.name)
+        bp = self.bridge_pass(player)
+        if bp: 
+            print("You have successfully passed the test, you cross the bridge!")
+        else:
+            print("You are flung to your doom! Game Over...")
+            time.sleep(3)
+            exit()
         
     def dialog(self, player_name):    
-        pass
+        print(f"\{player_name}, you have arrived at the bridge of death!")
+        print("You see a man guarding the bridge.")
+        print(f"\tBridge Keeper: 'Stop! Who would cross the Bridge of Death")
+        print(f"\t\tmust answer me these questions three, ere the other side")
+        print(f"\t\the see'")
+        print(f"\t{player_name}: 'Ask me the questions, bridgekeeper. I am")
+        print(f"\t\tnot afraid.'")
+    
+    def bridge_pass(self, player):
+        '''
+            To pass the bridge the player must answer
+            questions specific to their character
+            if they guess wrong, they get thrown off the 
+            bridge and fall to their doom!
+        '''
+        print(f"\n{player.name}, you must answer the 3 questions from the")
+        print("bridgkeeper to get across the bridge to find the Holy Grail.")
+        q1 = input("Question 1: What is your full name?")
+        name = player.name
+        if name.lower() in q1.lower():
+            print("Successfully passed the first question!")
+        else: 
+            print("Your answer is incorrect...")
+            return False
+        
+        q2 = input("Question 2: What is your quest?")
+        answer1 = "holy grail"
+        if answer1.lower() in q2:
+            print("Successfully passed the second question!")
+        else: 
+            print("Your answer is incorrect...")
+            return False
+        
+        if player.name == "King Arthur":
+            print("What... is the air-speed velocity of an unladen")
+            q3 = input("swallow:")
+            answer3 = "african or european swallow?"
+            if answer3 in q3.lower():
+                print("Successfully passed the third question!")
+                return True
+            else:
+                print("Your answer is incorrect...")
+                return False
+        elif player.name == "Sir Galahad":
+            q3 = input("Question 3: What is your favorite color?")
+            answer3 = "yellow"
+            if answer3 in q3.lower():
+                print("Successfully passed the third question!")
+                return True
+            else:
+                print("Your answer is incorrect...")
+                return False
+        elif player.name == "Sir Bedivere":
+            q3 = input("Question 3: What is your favorite color?")
+            answer3 = "blue"
+            if answer3 in q3.lower():
+                print("Successfully passed the third question!")
+                return True
+            else:
+                print("Your answer is incorrect...")
+                return False
+        elif player.name == "Sir Lancelot":
+            q3 = input("Question 3: What is your favorite color?")
+            answer3 = "blue"
+            if answer3 in q3.lower():
+                print("Successfully passed the third question!")
+                return True
+            else:
+                print("Your answer is incorrect...")
+                return False
+        else: # lines for Sir Robin
+            q3 = input("Question 3: What... is the capital of Assyria?")
+            answer3 = "assur"
+            if answer3 in q3.lower():
+                print("Successfully passed the third question!")
+                return True
+            else:
+                print("Your answer is incorrect...")
+                return False
+            
     
 class CastleOfAargh(Quest):
 
