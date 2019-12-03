@@ -1,6 +1,6 @@
 # Roslyn Parker
 # Start Date: 13 Nov. 2019
-# End Date:
+# End Date: 2 Dec. 2019
 
 # This file contains the
 # class to create each character 
