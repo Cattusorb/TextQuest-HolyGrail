@@ -1,6 +1,6 @@
 # Roslyn Parker
 # Start Date: 4 Nov. 2019
-# End Date: 
+# End Date: 2 Dec. 2019
 
 # The file contains the abstract 
 # quest template class for 
@@ -11,7 +11,6 @@ import random
 class Quest: 
     def __init__(self, player):
         self.player = player
-        self.isComplete = False
         
     def dialog(self):
         '''

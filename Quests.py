@@ -1,6 +1,6 @@
 # Roslyn Parker
 # Start Date: 25 Nov. 2019
-# End Date:
+# End Date: 2 Dec. 2019
 
 # This file contains the classes
 # for each quest in the 
@@ -455,7 +455,7 @@ class BridgeOfDeath(Quest):
         '''
         print(f"\n{player.name}, you must answer the 3 questions from the")
         print("bridgkeeper to get across the bridge to find the Holy Grail.")
-        q1 = input("Question 1: What is your full name?")
+        q1 = input("Question 1: What is your full name? ")
         name = player.name
         if name.lower() in q1.lower():
             print("Successfully passed the first question!")
@@ -463,7 +463,7 @@ class BridgeOfDeath(Quest):
             print("Your answer is incorrect...")
             return False
         
-        q2 = input("Question 2: What is your quest?")
+        q2 = input("Question 2: What is your quest? ")
         answer1 = "holy grail"
         if answer1.lower() in q2:
             print("Successfully passed the second question!")
@@ -482,7 +482,7 @@ class BridgeOfDeath(Quest):
                 print("Your answer is incorrect...")
                 return False
         elif player.name == "Sir Galahad":
-            q3 = input("Question 3: What is your favorite color?")
+            q3 = input("Question 3: What is your favorite color? ")
             answer3 = "yellow"
             if answer3 in q3.lower():
                 print("Successfully passed the third question!")
@@ -491,7 +491,7 @@ class BridgeOfDeath(Quest):
                 print("Your answer is incorrect...")
                 return False
         elif player.name == "Sir Bedivere":
-            q3 = input("Question 3: What is your favorite color?")
+            q3 = input("Question 3: What is your favorite color? ")
             answer3 = "blue"
             if answer3 in q3.lower():
                 print("Successfully passed the third question!")
@@ -500,7 +500,7 @@ class BridgeOfDeath(Quest):
                 print("Your answer is incorrect...")
                 return False
         elif player.name == "Sir Lancelot":
-            q3 = input("Question 3: What is your favorite color?")
+            q3 = input("Question 3: What is your favorite color? ")
             answer3 = "blue"
             if answer3 in q3.lower():
                 print("Successfully passed the third question!")
@@ -509,7 +509,7 @@ class BridgeOfDeath(Quest):
                 print("Your answer is incorrect...")
                 return False
         else: # lines for Sir Robin
-            q3 = input("Question 3: What... is the capital of Assyria?")
+            q3 = input("Question 3: What... is the capital of Assyria? ")
             answer3 = "assur"
             if answer3 in q3.lower():
                 print("Successfully passed the third question!")

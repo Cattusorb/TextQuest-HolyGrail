@@ -144,7 +144,7 @@ class SirGalahad(Quest):
         self.dialog(player)
         
     def dialog(self, player):  
-        print(f"\n Thunder rolls in as you search for the grail. You get caught")
+        print(f"\nThunder rolls in as you search for the grail. You get caught")
         print("in a rainstorm. In the distance you see a Holy Grail appear above")
         print("a castle. You are excited because you have found what you have been")
         print("searching for! You wander towards it and enter the castle. You are")
@@ -185,7 +185,7 @@ class SirGalahad(Quest):
             and the other knights of the round table save you 
             from them and bring you to a warm place.
         '''
-        print(f"\n The ladies of the Castle of Anthrax become crazed with you.")
+        print(f"\nThe ladies of the Castle of Anthrax become crazed with you.")
         print("You don't know what to do and the women are crawling all over you.")
         print("Out of nowhere the knights of the round table grab you and save you")
         print("from the women and take you to a warm place. \nOnward...")

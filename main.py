@@ -1,6 +1,6 @@
 # Roslyn Parker
 # Start Date: 4 Nov. 2019
-# End Date: 
+# End Date: 2 Dec. 2019 
 
 # This file is the main program
 # for the TextQuest-HolyGrail game
@@ -113,24 +113,21 @@ def swallow_chat():
         except:
             print("Invalid Input")
   
-def check_health(player, checkpoint_n): 
+def check_health(player): 
     '''
         Checks the health of the player, if the player's 
         health is = 0 the game is over.
     '''
-    exit = False
     try: 
         if player.health <= 0:
             print(f"{player.name} has no health left. Game over...")
             time.sleep(2)
-            exit = True
+            exit()
         else: 
             player.display_player()
     except: 
         print("Invalid player.")
     
-    if exit:
-        exit()
 
 def check_continue():
     '''
@@ -150,19 +147,6 @@ def check_continue():
         else: 
             print("Invalid Input.")
  
-def reset(player):
-    '''
-        Resets the game and player stats
-        TODO
-    '''
-    pass
- 
-def reset_at_checkpoint(player):
-    '''
-        Resets the game to the last completed quest
-        TODO
-    '''
-    pass
  
 # RUN GAME
 #CHARACTER SELECTION
@@ -172,23 +156,17 @@ if character.name == "End":
     time.sleep(2)
     exit()
 
-# CHARACTER COPY FOR RESETS
-init_character = character
-
+# INFORMATIVE 
 print("\n***")
 print("At any point in the game if you press 'q' to quit, the game will end.")
 print("***\n")
-#Test area
-check_health(character, 1)
-CastleOfAargh(character)
 
-'''
 #INTRO DIALOG
 swallow_answer = swallow_chat()
 if swallow_answer == 1: 
-    print(f"You walk away and move on to the next quest.")
+    print(f"You walk away and move on to the next task.")
 elif swallow_answer == 2: 
-    print(f"You continue listening and your next quest gets delayed...")
+    print(f"You continue listening and your next task gets delayed...")
     time.sleep(10)
 else:
     print(f"You decide to go research swallows and quit your quest.")
@@ -206,22 +184,22 @@ check_continue()
  
 #THE BLACK KNIGHT
 BlackKnight(character)
-check_health(character, 1)
+check_health(character)
 check_continue()
 
 #THE LORD
 God(character)
-check_health(character, 2)
+check_health(character)
 check_continue()
 
 #FLYING ANIMALS
 FlyingAnimals(character)
-check_health(character, 3)
+check_health(character)
 check_continue()
 
 #GIANT RABBIT
 GiantRabbit(character)
-check_health(character, 4)
+check_health(character)
 check_continue()
 
 #CHARACTER SPECIFIC SIDE-QUESTS
@@ -236,31 +214,29 @@ elif character.name == "Sir Lancelot":
 else:
     SirRobin(character)
     
-check_health(character, 5)
+check_health(character)
 check_continue()
 
 #ENCHANTER TIM
 EnchanterTim(character)
-check_health(character, 6)
+check_health(character)
 check_continue()
 
 #THE CAVE RABBIT
 CaveRabbit(character)
-check_health(character, 7)
+check_health(character)
 check_continue()
 
 #THE CAVE
 TheCave(character)
-check_health(character, 8)
+check_health(character)
 check_continue()
 
 #THE BRIDGE OF DEATH
 BridgeOfDeath(character)
-check_health(character, 9)
+check_health(character)
 check_continue()
 
 #THE CASTLE OF AARGH
 CastleOfAargh(character)
-check_health(character, 10)
-
-'''
+check_health(character)
