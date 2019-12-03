@@ -1,6 +1,6 @@
 # Roslyn Parker
 # Start Date: 30 Nov. 2019
-# End Date:
+# End Date: 2 Dec. 2019
 
 # This file contains the classes
 # for each side-quest in the 
