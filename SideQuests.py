@@ -13,7 +13,7 @@ class KingArthur(Quest):
     def __init__(self, player): 
         '''
             Constructor function for side quest
-            of Sir Robin
+            of King Arthur
         '''
         Quest.__init__(self, player)
         self.dialog(player)
@@ -138,7 +138,7 @@ class SirGalahad(Quest):
     def __init__(self, player): 
         '''
             Constructor function for side quest
-            of Sir Robin
+            of Sir Galahad
         '''
         Quest.__init__(self, player)
         self.dialog(player)
