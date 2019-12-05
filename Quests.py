@@ -397,7 +397,7 @@ class TheCave(Quest):
         print("last words of Joseph of Arimathea. He who is valiant and")
         print("pure of spirit may find the Holy Grail in the Castle of ")
         print("Aaaarrrrggghhh.' After reading this you ponder what it means")
-        print(f"when suddenly the Legendary Back Beast appears!")
+        print(f"when suddenly the Legendary Black Beast appears!")
 
     def black_beast(self, player):
         '''
