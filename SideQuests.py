@@ -117,7 +117,7 @@ class KingArthur(Quest):
         print(f"\n\tKnight: 'You must bring us another shrubbery and cut down")
         print(f"\t\tthe tallest tree in the forest with a harring!'")
         print(f"\t{player.name}: 'I refuse to do it!'")
-        print(f"\nThe knights who say 'Ni' cowery in agony when you say that word.")
+        print(f"\nThe knights who say 'Ni' cower in agony when you say that word.")
         print(f"Guess the word that they don't like to continue! You have 3 guesses.")
         tries = 3
         while(True):
